@@ -10,14 +10,14 @@ int main(int argc, char **argv) {
     }
 
     int iterations = strtol(argv[1], NULL, 10);
-    int n = 0;
-    for (int i = 0; i < iterations; i++) {
+    int n = 10;
+    for (int i = 1; i < iterations; i++) {
         if (n > 0) {
-            //printf("oh i'm forking it because n is %d\n", n);
             n = fork();
+            //printf("oh i'm forking it because i'm a parent, n is %d\n", n);
         }
         if (n == 0) {
-            //printf("i'm not forking it because n is %d\n", n);
+            //printf("i'm not forking it because i'm a child, n is %d\n", n);
         }
         if (n < 0) {
             perror("fork");
